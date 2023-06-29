@@ -5,9 +5,11 @@ export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "https://video-website-server.onrender.com"
   }),
+  tagTypes: ["allVideos","relatedVideos"],
   endpoints: builder => ({
     getAllVideos: builder.query({
-      query: () => `/videos`
+      query: () => `/videos`,
+      providesTags: ["allVideos"]
     }),
 
     getSingleVideo: builder.query({
@@ -19,14 +21,16 @@ export const apiSlice = createApi({
         const likes = tags.map(tag => `title_like=${tag}`);
         const queryString = `/videos?${likes.join("&")}&_limit=4`;
         return queryString;
-      }
+      },
+      providesTags: ["relatedVideos"]
     }),
     addVideo: builder.mutation({
       query: data => ({
         url: `/videos`,
         method: "POST",
         body: data
-      })
+      }),
+      invalidatesTags: ["allVideos","relatedVideos"]
     })
   })
 });
