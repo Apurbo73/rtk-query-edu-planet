@@ -8,8 +8,15 @@ export const apiSlice = createApi({
   endpoints: builder => ({
     getAllVideos: builder.query({
       query: () => `/videos`
+    }),
+    addVideo: builder.mutation({
+      query: data => ({
+        url: `/videos`,
+        method: "POST",
+        body: data
+      })
     })
   })
 });
 
-export const { useGetAllVideosQuery } = apiSlice;
+export const { useGetAllVideosQuery, useAddVideoMutation } = apiSlice;
