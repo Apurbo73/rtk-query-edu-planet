@@ -10,6 +10,7 @@ import Navbar from "./pages/Navbar";
 import About from "./pages/About";
 import AddVideo from "./components/Add/AddVideo";
 import SingleVideo from "./components/SingleVideo/SingleVideo";
+import Footer from "./pages/Footer";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
@@ -17,7 +18,7 @@ const root = createRoot(container);
 root.render(
   <BrowserRouter>
     <Provider store={store}>
-      <Navbar />
+      {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/about" element={<About />} />
@@ -25,6 +26,7 @@ root.render(
         <Route path="/videos/:id" element={<SingleVideo />} />
       </Routes>
     </Provider>
+    <Footer />
   </BrowserRouter>
 );
 
