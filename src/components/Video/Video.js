@@ -9,10 +9,10 @@ const Video = ({ video }) => {
       {/* {video.title} */}
 
       <div
-        className="card  m-2 shadow-lg p-3 mb-5 bg-body rounded"
-        style={{ width: "18rem" }}
+        className="card  shadow-lg p-3 mb-5 bg-body rounded"
+        style={{ width: "20rem" }}
       >
-        <img style={{height:150}} src={thumbnail} className="card-img-top" alt="..." />
+        <img style={{height:180}} src={thumbnail} className="card-img-top" alt="..." />
         <div className="card-body">
           <h6 className="card-title">
             {title}

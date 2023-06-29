@@ -15,11 +15,11 @@ const SingleVideo = () => {
   // console.log(singleVideo)
   return (
     <div className="d-flex container">
-      <div style={{minWidth:370}} className="mt-4 w-75">
+      <div style={{ minWidth: 370 }} className="mt-4 w-75">
         {singleVideo && <SingleVideoPage singleVideo={singleVideo} />}
       </div>
       <div className="m-4 w-25 d-none d-sm-block">
-        <RelatedVideos />
+        {singleVideo && <RelatedVideos singleVideo={singleVideo} />}
       </div>
     </div>
   );

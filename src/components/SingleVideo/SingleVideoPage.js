@@ -8,7 +8,7 @@ const SingleVideoPage = ({ singleVideo }) => {
   return (
     <div>
       <iframe
-        style={{ height: 350 }}
+        style={{ height: 450 }}
         width="100%"
         className="aspect-video"
         src={link}
