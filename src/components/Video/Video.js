@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Video = ({ video }) => {
   //   console.log(video);
-  const { title, thumbnail, author, duration } = video;
+  const { title, thumbnail, author, duration,id } = video;
   return (
     <div className="mx-auto">
       {/* {video.title} */}
@@ -22,9 +23,9 @@ const Video = ({ video }) => {
           <p className="card-text">
             Duration: {duration} minutes
           </p>
-          <a href="#" className="btn btn-primary w-100">
+          <Link to={`/videos/${id}`} href="#" className="btn btn-primary w-100">
             Watch video
-          </a>
+          </Link>
         </div>
       </div>
     </div>

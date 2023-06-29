@@ -9,6 +9,11 @@ export const apiSlice = createApi({
     getAllVideos: builder.query({
       query: () => `/videos`
     }),
+
+    getSingleVideo: builder.query({
+      query: id => `/videos/${id}`
+    }),
+
     addVideo: builder.mutation({
       query: data => ({
         url: `/videos`,
@@ -19,4 +24,8 @@ export const apiSlice = createApi({
   })
 });
 
-export const { useGetAllVideosQuery, useAddVideoMutation } = apiSlice;
+export const {
+  useGetAllVideosQuery,
+  useAddVideoMutation,
+  useGetSingleVideoQuery
+} = apiSlice;

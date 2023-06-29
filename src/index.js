@@ -9,6 +9,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./pages/Navbar";
 import About from "./pages/About";
 import AddVideo from "./components/Add/AddVideo";
+import SingleVideo from "./components/SingleVideo/SingleVideo";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
@@ -20,9 +21,8 @@ root.render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/about" element={<About />} />
-        <Route path="/add-video" element={<AddVideo/>} />
-
-
+        <Route path="/add-video" element={<AddVideo />} />
+        <Route path="/videos/:id" element={<SingleVideo />} />
       </Routes>
     </Provider>
   </BrowserRouter>
