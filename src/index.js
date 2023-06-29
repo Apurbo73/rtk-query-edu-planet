@@ -6,6 +6,8 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Navbar from "./pages/Navbar";
+import About from "./pages/About";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
@@ -13,8 +15,11 @@ const root = createRoot(container);
 root.render(
   <BrowserRouter>
     <Provider store={store}>
+      <Navbar />
       <Routes>
-        <Route path="/" element={<App />}/>
+        <Route path="/" element={<App />} />
+        <Route path="/about" element={<About />} />
+
       </Routes>
     </Provider>
   </BrowserRouter>
