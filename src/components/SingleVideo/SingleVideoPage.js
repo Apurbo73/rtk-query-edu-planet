@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaEdit } from "react-icons/fa";
 import { BsFillTrashFill } from "react-icons/bs";
+import { useDeleteVideoMutation } from "../../features/ApiSlice/apiSlice";
+import { useNavigate } from "react-router-dom";
 const SingleVideoPage = ({ singleVideo }) => {
-  console.log(singleVideo);
-
-  const { title, duration, description, author, link } = singleVideo;
+  // console.log(singleVideo);
+const navigate= useNavigate();
+  const { title, duration, description, author, link,id } = singleVideo;
+  const [deleteVideo, {isLoading,isSuccess}]= useDeleteVideoMutation();
+  //handle Delete:
+  const handleDelete=(e)=>{
+    deleteVideo(id);
+  }
+  useEffect(()=>{
+    {
+      isSuccess && navigate('/');
+    }
+  },[isSuccess])
   return (
     <div>
       <iframe
@@ -28,7 +40,7 @@ const SingleVideoPage = ({ singleVideo }) => {
             <button className="btn  btn-outline-primary m-1 ">
               <FaEdit />
             </button>
-            <button className="btn btn-outline-danger m-1">
+            <button className="btn btn-outline-danger m-1" onClick={handleDelete}>
               <BsFillTrashFill />
             </button>
           </div>

@@ -5,7 +5,7 @@ export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "https://video-website-server.onrender.com"
   }),
-  tagTypes: ["allVideos","relatedVideos"],
+  tagTypes: ["allVideos", "relatedVideos"],
   endpoints: builder => ({
     getAllVideos: builder.query({
       query: () => `/videos`,
@@ -30,7 +30,15 @@ export const apiSlice = createApi({
         method: "POST",
         body: data
       }),
-      invalidatesTags: ["allVideos","relatedVideos"]
+      invalidatesTags: ["allVideos", "relatedVideos"]
+    }),
+    deleteVideo: builder.mutation({
+      query: id => ({
+        url: `/videos/${id}`,
+        method: "DELETE"
+      }),
+      invalidatesTags: ["allVideos", "relatedVideos"]
+
     })
   })
 });
@@ -39,5 +47,6 @@ export const {
   useGetAllVideosQuery,
   useAddVideoMutation,
   useGetSingleVideoQuery,
-  useGetRelatedVideosQuery
+  useGetRelatedVideosQuery,
+  useDeleteVideoMutation
 } = apiSlice;
