@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div className="bg-dark text-light text-center p-3">
-      <p className="">&copy; 2023 Apurbo Deb Nath</p>
+      <Link style={{textDecoration:'none'}} to='/about' className="text-light">&copy; 2023 Apurbo Deb Nath</Link>
         {/* <Link className=" fa-2x">
           <AiFillLinkedin />
         </Link>
