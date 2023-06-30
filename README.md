@@ -7,4 +7,6 @@
 ###### 04. Add new video.
 ###### 05. Delete video.
 ###### 06. Search video.
+###### 06. Edit video detail.
+
 

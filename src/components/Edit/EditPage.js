@@ -1,15 +1,23 @@
 import React from "react";
-import AddVideoForm from "./AddVideoForm";
-import { Link } from "react-router-dom";
+import EditForm from "./EditForm";
+import { Link, useParams } from "react-router-dom";
+import { useGetSingleVideoQuery } from "../../features/ApiSlice/apiSlice";
 
-const AddVideo = () => {
+const EditPage = () => {
+  const { id } = useParams();
+  const {
+    data: singleVideo,
+    isLoading,
+    isError,
+    error
+  } = useGetSingleVideoQuery(id);
+  // console.log(singleVideo)
   return (
-    <div >
-     <div>
+    <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
           <Link to="/" className="navbar-brand" href="#">
-           <span className="text-warning"> Edu-Planet</span>
+            <span className="text-warning"> Edu-Planet</span>
           </Link>
           <button
             className="navbar-toggler"
@@ -40,18 +48,15 @@ const AddVideo = () => {
                 </Link>
               </li>
             </ul>
-            
-        
-
           </div>
         </div>
       </nav>
-    </div>
-      <div className="container  w-50 mt-5 text-center shadow-lg p-3 mb-5 bg-body rounded">
-        <AddVideoForm />
+
+      <div className="container  w-50 mt-5  text-center shadow-lg p-3 mb-5 bg-body rounded">
+        {singleVideo && <EditForm singleVideo={singleVideo} />}
       </div>
     </div>
   );
 };
 
-export default AddVideo;
+export default EditPage;

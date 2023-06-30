@@ -23,7 +23,7 @@ const RelatedVideos = ({ singleVideo }) => {
   }
   if (!isLoading && !isError && relatedVideos.length > 0) {
     content = relatedVideos.map(videos =>
-      <RelatedVideosList videos={videos} />
+      <RelatedVideosList key={videos.id} videos={videos} />
     );
   }
   return (

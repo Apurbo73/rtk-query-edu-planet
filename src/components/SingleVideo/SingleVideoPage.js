@@ -2,21 +2,24 @@ import React, { useEffect } from "react";
 import { FaEdit } from "react-icons/fa";
 import { BsFillTrashFill } from "react-icons/bs";
 import { useDeleteVideoMutation } from "../../features/ApiSlice/apiSlice";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const SingleVideoPage = ({ singleVideo }) => {
   // console.log(singleVideo);
-const navigate= useNavigate();
-  const { title, duration, description, author, link,id } = singleVideo;
-  const [deleteVideo, {isLoading,isSuccess}]= useDeleteVideoMutation();
+  const navigate = useNavigate();
+  const { title, duration, description, author, link, id } = singleVideo;
+  const [deleteVideo, { isLoading, isSuccess }] = useDeleteVideoMutation();
   //handle Delete:
-  const handleDelete=(e)=>{
+  const handleDelete = e => {
     deleteVideo(id);
-  }
-  useEffect(()=>{
-    {
-      isSuccess && navigate('/');
-    }
-  },[isSuccess])
+  };
+  useEffect(
+    () => {
+      {
+        isSuccess && navigate("/");
+      }
+    },
+    [isSuccess]
+  );
   return (
     <div>
       <iframe
@@ -32,20 +35,26 @@ const navigate= useNavigate();
       <div>
         <div className="d-flex">
           <div>
-            <p >
+            <p>
               Title: {title}
             </p>
           </div>
           <div className="ms-auto">
-            <button className="btn  btn-outline-primary m-1 ">
+            <Link
+              to={`/videos/edit/${id}`}
+              className="btn  btn-outline-primary m-1 "
+            >
               <FaEdit />
-            </button>
-            <button className="btn btn-outline-danger m-1" onClick={handleDelete}>
+            </Link>
+            <button
+              className="btn btn-outline-danger m-1"
+              onClick={handleDelete}
+            >
               <BsFillTrashFill />
             </button>
           </div>
         </div>
-        <div >
+        <div>
           <div>
             <p className="card-text">
               Author: {author}

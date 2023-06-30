@@ -11,6 +11,7 @@ import About from "./pages/About";
 import AddVideo from "./components/Add/AddVideo";
 import SingleVideo from "./components/SingleVideo/SingleVideo";
 import Footer from "./pages/Footer";
+import EditPage from "./components/Edit/EditPage";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
@@ -24,6 +25,7 @@ root.render(
         <Route path="/about" element={<About />} />
         <Route path="/add-video" element={<AddVideo />} />
         <Route path="/videos/:id" element={<SingleVideo />} />
+        <Route path="/videos/edit/:id" element={<EditPage />} />
       </Routes>
     </Provider>
     <Footer />
