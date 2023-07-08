@@ -3,29 +3,34 @@ import { Link } from "react-router-dom";
 
 const Video = ({ video }) => {
   //   console.log(video);
-  const { title, thumbnail, author, duration,id } = video;
+  const { title, thumbnail, author, duration, id } = video;
   return (
-    <div className="mx-auto">
-      {/* {video.title} */}
-
-      <div
-        className="card  shadow-lg p-3 mb-5 bg-body rounded"
-        style={{ width: "20rem" }}
-      >
-        <img style={{height:180}} src={thumbnail} className="card-img-top" alt="..." />
+    <div className="col-12 col-md-3 col-lg-3">
+      <div className="card text-center text-dark card-bg pb-2 mt-3">
         <div className="card-body">
-          <h6 className="card-title">
-            {title}
-          </h6>
-          <p className="card-text">
-            {author}
-          </p>
-          <p className="card-text">
-            Duration: {duration} minutes
-          </p>
-          <Link to={`/videos/${id}`} href="#" className="btn btn-primary w-100">
+          <img
+            style={{ height: 240 }}
+            src={thumbnail}
+            className="card-img-top p-3 image   rounded"
+            alt="..."
+          />
+          <div className="card-body ">
+            <h5 className="card-title">
+              {title}
+            </h5>
+            <p className="card-text">
+              Author: {author}
+            </p>
+            {/* <p className="card-text">
+            Category: {category}
+          </p> */}
+            <p className="card-text">
+              Duration: {duration}
+            </p>
+            <Link to={`/videos/${id}`} href="#" className="btn btn-dark w-100">
             Watch video
           </Link>
+          </div>
         </div>
       </div>
     </div>

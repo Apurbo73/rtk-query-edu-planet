@@ -38,7 +38,7 @@ const AddVideoForm = () => {
     setTitle("");
   };
   return (
-    <div className="mx-auto mt-3">
+    <div  className="mx-auto mt-3 mb-5">
       <ToastContainer />
       <form
         style={{ backgroundColor: "#FFD580", padding: 10 }}

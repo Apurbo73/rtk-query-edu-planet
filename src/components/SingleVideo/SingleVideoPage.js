@@ -21,7 +21,7 @@ const SingleVideoPage = ({ singleVideo }) => {
     [isSuccess]
   );
   return (
-    <div>
+    <div className="mb-5">
       <iframe
         style={{ height: 450 }}
         width="100%"
